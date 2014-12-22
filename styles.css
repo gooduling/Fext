@@ -1,0 +1,219 @@
+@font-face{font-family: 'Calibri Bold'; src: url('fonts/calibri_bold.eot'); src: url('fonts/calibri_bold.eot?#iefix') format('embedded-opentype'), url('fonts/calibri_bold.svg#Calibri Bold') format('svg'), url('fonts/calibri_bold.woff') format('woff'), url('fonts/calibri_bold.ttf') format('truetype'); font-weight: normal; font-style: normal}
+@font-face{font-family: 'VAGRounded-Light';src: url('fonts/10677.eot');src: local('VAGRounded-Light'), url('fonts/10677.woff') format('woff'), url('fonts/10677.ttf') format('truetype'); font-weight: normal; font-style: normal}
+
+body, div, ul, li{
+	margin:0;
+	padding:0
+}
+
+body{
+	font:bold 14px Arial, sans-serif;
+	color:#fff
+}
+ 
+#background{
+	width:900px;
+	height:500px;
+	background: url(img/background.jpg)
+}
+
+#whatson {
+	width:660px;
+	height:246px;
+	top:121px;
+	left:120px;
+	position:absolute;
+	background:#fff; 
+	background-color:rgba(255,255,255,0.9);
+	border-radius: 7px; 		
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-moz-opacity: 0.9 
+}
+
+.dateform{
+	position:relative;
+	
+	left:303px;
+	top:2px;
+	font-family:'Calibri Bold';
+	font-size:14px
+}
+
+.dateform p{
+	display:inline-block;
+	margin:0
+}
+
+.datefield{
+	width:87px;
+	height:28px;
+	margin-left:3px;
+	margin-right:12px;
+	padding-left:5px;
+	border:1px solid #262626;
+	box-sizing:border-box;
+	 -moz-box-sizing:border-box;
+	 -webkit-box-sizing:border-box;
+	background:#292929;
+	font-family:'Calibri Bold';
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+	border-radius: 7px 7px 0 0;
+	-webkit-border-radius: 7px 7px 0 0;
+	-moz-border-radius: 7px 7px 0 0;
+	background:url(img/datefieldbg.jpg) repeat-x; /* исп. графика для уменьшения объема кроссбраузерного кода */
+}
+
+.searchbtn {
+	position:relative;
+	margin-top:3px;
+	margin-left:-6px;
+	cursor: pointer;
+	border: none;
+	width:80px;
+	height:28px;
+	font-family:'VAGRounded-Light';
+	font-size:16px;
+	font-stretch:ultra-expanded;
+	color:#fff;
+	background:url(img/searchbtn.png) /* для уменьшения объема кроссбраузерного кода исп. png-8 */
+}
+
+.whatsontop{
+	height:40px;
+	position:relative;
+	width:100%;
+	background:#303030;
+	background: -moz-linear-gradient(top, #3E3E3E 0%,#242424 100%);
+    background: -webkit-linear-gradient(top, #3E3E3E 0%,#242424 100%);
+    background: -o-linear-gradient(top, #3E3E3E 0%,#242424 100%);
+    background: -ms-linear-gradient(top, #3E3E3E 0%,#242424 100%);
+    background: linear-gradient(top, #3E3E3E 0%,#242424 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3E3E3E', endColorstr='#242424',GradientType=0);
+	border-radius: 7px 7px 0 0;
+	-webkit-border-radius: 7px 7px 0 0;
+	-moz-border-radius: 7px 7px 0 0
+}
+	
+.wton{
+	position:absolute;
+	top:10px;
+	left:20px;
+	font-family:'VAGRounded-Light';
+	font-size:19px;
+}
+	
+#carousel{
+	position:absolute;
+	width:635px;
+	height:170px;
+	top:59px;
+	left:10px;
+	overflow:hidden
+}
+
+#carousel ul{
+	width:9999px;
+	list-style:none;
+}
+
+.suggestionslist{
+	float:left;
+	width:200px;
+	height:167px;
+	margin-left:10px;
+	position:relative
+}
+
+.suggestionslist img{
+	position:absolute;
+	bottom:0
+}
+
+.arrowbutton{
+	width:32px;
+	height:31px;
+	position:absolute;
+	z-index:10;
+	top:132px
+}
+
+.rightbtn{
+	background:url(img/rightbtn.png);
+	right:8px
+}
+	
+.leftbtn{
+	background:url(img/leftbtn.png);
+	left:8px
+}
+	
+.suggtop{
+	height:27px;
+	position:absolute;
+	width:100%;
+	z-index:5;
+	background:#292929;
+	background: -moz-linear-gradient(top, #353535 0%, #1B1B1B 100%);
+    background: -webkit-linear-gradient(top, #353535 0%, #1B1B1B 100%);
+    background: -o-linear-gradient(top, #353535 0%, #1B1B1B 100%);
+    background: -ms-linear-gradient(top, #353535 0%, #1B1B1B 100%);
+    background: linear-gradient(top, #353535 0%, #1B1B1B 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353535', endColorstr='#1B1B1B',GradientType=0)
+}
+
+.suggtop span{
+	position:absolute;
+	top:5px;
+	left:11px
+}
+
+.suggbotm{
+	width:100%;
+	height:27px;
+	position:absolute;
+	background:#282828;
+	bottom:0px;
+	font-size:11px;
+	z-index:5;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80); 
+	-moz-opacity: 0.8; 
+	-khtml-opacity: 0.8; 
+	opacity: 0.8; 
+	zoom: 1
+}
+
+.suggbotm span{
+	position:absolute;
+	top:7px;
+	left:12px
+}
+
+.animated{
+	-webkit-transition: margin-left 0.5s;
+	-o-transition: margin-left 0.5s;
+	-moz-transition: margin-left 0.5s;
+	-ms-transition: margin-left 0.5s;
+	transition: margin-left 0.5s
+}
+
+@media screen and (max-width: 800px){
+	body{background-color:gray}
+	#background{display:none}
+	#whatson{left:10px}
+}
+
+@media screen and (max-width: 670px){
+	.wton{display:none}
+	.dateform{left:20px}
+	#whatson{width:100%; left:0}
+	#carousel{left:0; width:100%}
+}
+
+@media screen and (max-width: 360px){
+	.searchbtn {top:-41px; right:105px}
+	.dateform{width:290px}
+}
+
