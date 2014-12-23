@@ -8,23 +8,7 @@
 	<title>Whats'on Test</title>
 </head>
 <body>
-	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1515108735428926',
-      xfbml      : true,
-      version    : 'v2.2'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+	<script  src="fb.js" type="text/javascript"></script>
 	<div id="background"></div>
 	<div id="whatson">
 		<div class="whatsontop">
@@ -76,12 +60,7 @@
 			</ul>
 		</div>
 	</div>
-	<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
-<script src="script.js" type="text/javascript"></script>
+	<div class="fb-like" data-share="true"	data-width="650" data-show-faces="true"></div>
+	<script src="script.js" type="text/javascript"></script>
 </body>
 </html>
