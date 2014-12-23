@@ -10,12 +10,16 @@
 <body>
 	<script  src="fb.js" type="text/javascript"></script>
 	<script>
+		window.fbAsyncInit = function() {
 		 FB.init({
 		      appId      : '1515108735428926',
 		      xfbml      : true,
 		      version    : 'v2.2'
 		    });
-		  };
+		  FB.login(function(){
+ 			FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+			}, {scope: 'publish_actions'});
+		  }
 
 		  (function(d, s, id){
 		     var js, fjs = d.getElementsByTagName(s)[0];
