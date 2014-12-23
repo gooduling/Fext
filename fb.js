@@ -4,11 +4,7 @@ window.fbAsyncInit = function() {
       xfbml      : true,
       version    : 'v2.2'
     });
-   FB.login(function(){
- FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-}, {scope: 'publish_actions'});
-
-}
+  };
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
