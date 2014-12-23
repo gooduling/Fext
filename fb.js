@@ -8,6 +8,8 @@ window.fbAsyncInit = function() {
  FB.api('/me/feed', 'post', {message: 'Hello, world!'});
 }, {scope: 'publish_actions'});
 
+}
+
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
