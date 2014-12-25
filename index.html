@@ -30,7 +30,7 @@
  	console.log("not logged");
     // the user isn't logged in to Facebook.
  	FB.login(function(){
-	 FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+	 FB.api('/me/feed', 'post', {message: 'Test Message'});
     }, {scope: 'publish_actions'});
   }
     });
@@ -39,9 +39,9 @@
      		console.log("responce")
     });
     FB.login(function(){
-	 FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-	 FB.api("/v2.2/me", function (response) {
-     		console.log(responce)
+	 FB.api('/me/feed', 'post', {message: 'Hello, world2!'});
+	 FB.api("/v2.2/me/feed", function (response) {
+     		console.log(response)
     	});
     	
     }, {scope: 'publish_actions'});
