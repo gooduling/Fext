@@ -18,7 +18,7 @@
     });
     FB.login(function(){
 	 FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-	 FB.api("/v1.0/me", function (response) {
+	 FB.api("/v2.2/me", function (response) {
      		console.log(responce)
     	});
     	
