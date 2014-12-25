@@ -36,7 +36,7 @@
     // the user isn't logged in to Facebook.
  	FB.login(function(){
 	 //FB.api('/me/feed', 'post', {message: 'Test Message'});
-    }, {scope: 'publish_actions'});
+    }, {scope: 'public_profile,user_status'});
   }
     });
     
