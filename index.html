@@ -21,7 +21,7 @@
      if (response.status === 'connected') {
     var uid = response.authResponse.userID;
     var accessToken = response.authResponse.accessToken;
-    FB.api("/v2.2/me, function (response) {
+    FB.api("/v2.2/me", function (response) {
      	document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
         //SUCCESS	console.log(response);
     });
