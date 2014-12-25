@@ -17,7 +17,22 @@
       version    : 'v2.2'
     });
     FB.getLoginStatus(function(response) {
-    alert('OK');
+     if (response.status === 'connected') {
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+ 	console.log(response);
+  } else if (response.status === 'not_authorized') { // [2]
+ 	console.log(.status);
+    // the user is logged in to Facebook, 
+    // but has not authenticated your app
+ 
+  } else { // [3]
+ 	console.log("not logged");
+    // the user isn't logged in to Facebook.
+ 	FB.login(function(){
+	 FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+    }, {scope: 'publish_actions'});
+  }
     });
     FB.api("/v2.2/me", function (response) {
      		console.log(response);
