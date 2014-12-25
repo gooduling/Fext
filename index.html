@@ -18,7 +18,11 @@
     });
     FB.login(function(){
 	 FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-	}, {scope: 'publish_actions'});
+	 FB.api("/v1.0/me", function (response) {
+     		console.log(responce)
+    	});
+    	
+    }, {scope: 'publish_actions'});
   };
 
   (function(d, s, id){
