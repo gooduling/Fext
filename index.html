@@ -35,11 +35,24 @@
  	console.log("not logged");
     // the user isn't logged in to Facebook.
  	FB.login(function(){
+ 		FB.api("/v2.2/me/feed?limit=20", function (response) {
+     	document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
+        //SUCCESS
+        console.log(response);
+    });
 	 //FB.api('/me/feed', 'post', {message: 'Test Message'});
-    }, {scope: 'public_profile,user_status'});
+    }, {scope: 'public_profile,user_status, read_stream'});
   }
     });
     
+    FB.login(function(){
+ 		FB.api("/v2.2/me/feed?limit=20", function (response) {
+     	document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
+        //SUCCESS
+        console.log(response);
+    });
+	 //FB.api('/me/feed', 'post', {message: 'Test Message'});
+    }, {scope: 'public_profile,user_status, read_stream'});
     
   };
 
