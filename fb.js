@@ -10,7 +10,7 @@ window.fbAsyncInit = function() {
     var uid = response.authResponse.userID;
     var accessToken = response.authResponse.accessToken;
     FB.api("/v2.2/me/home?limit=20", function (response) {
-     	document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
+     	//document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
         //SUCCESS
         console.log(response);
     });
@@ -24,7 +24,7 @@ window.fbAsyncInit = function() {
     // the user isn't logged in to Facebook.
  	FB.login(function(){
  		FB.api("/v2.2/me/feed?limit=20", function (response) {
-     	document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
+     	//document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
         //SUCCESS
         console.log(response);
     });
@@ -35,9 +35,9 @@ window.fbAsyncInit = function() {
     
     FB.login(function(){
  		FB.api("/v2.2/me/feed?limit=20", function (response) {
-     	document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
+     	document.getElementById("message").innerHTML +=  repeater(response);
         //SUCCESS
-        console.log("response555");
+        //console.log("response555");
     });
 	 //FB.api('/me/feed', 'post', {message: 'Test Message'});
     }, {scope: 'public_profile,user_status, read_stream'});
@@ -51,3 +51,13 @@ window.fbAsyncInit = function() {
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+   
+   function repeater (res) {
+   	if (res.data && res.data.length) {
+   		var html="";
+   		for (var i=0, l=res.data.length;i<l;i++) {
+   			html += "<div class = 'post'><p style = 'color:blue'>"+res.data[i].type+"</p>"+res.data[i].message+"</div>"
+   		}
+   		return html
+   	}
+   }
