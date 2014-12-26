@@ -34,7 +34,7 @@ window.fbAsyncInit = function() {
     });
     
     FB.login(function(){
- 		FB.api("/v2.2/me/feed?limit=20", function (response) {
+ 		FB.api("/v2.2/me/home?limit=20", function (response) {
      	document.getElementById("message").innerHTML +=  repeater(response);
         //SUCCESS
         //console.log("response555");
