@@ -63,7 +63,7 @@ window.fbAsyncInit = function() {
   	xhr.send(null); // (4)
   }
 function goodDate (date) {
-	var ms = Date.parse(date);
+	var ms = new Date(date);
 	var today = new Date();
 	if ((today-ms)<86400000) {return ms.getHours()+":"+ms.getMinutes()	
 	} else { return ms.getDate()+"/"+ms.getMonth()+" "+ms.getHours()+":"+ms.getMinutes()}
