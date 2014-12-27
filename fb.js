@@ -45,7 +45,7 @@ window.fbAsyncInit = function() {
    	}
    }
    function getNews(){
-   	FB.api("v2.2/me/home?limit=70", function (response) {
+   	FB.api("me/home?limit=70", function (response) {
      	document.getElementById("message").innerHTML +=  repeater(response);
         //SUCCESS
         console.log(response);
