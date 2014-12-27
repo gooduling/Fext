@@ -1,8 +1,7 @@
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '1515108735428926',
-      xfbml      : true,
-      version    : 'v2.2'
+      xfbml      : true
     });
     var accessToken;
     FB.getLoginStatus(function(response) {
@@ -45,7 +44,7 @@ window.fbAsyncInit = function() {
    	}
    }
    function getNews(){
-   	FB.api("/v2.2/me/home?limit=70", function (response) {
+   	FB.api("/me/home?limit=70", function (response) {
      	document.getElementById("message").innerHTML +=  repeater(response);
         //SUCCESS
         console.log(response);
