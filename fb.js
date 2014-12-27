@@ -54,7 +54,7 @@ window.fbAsyncInit = function() {
    	if (res.data && res.data.length) {
    		var html="";
    		for (var i=0, l=res.data.length;i<l;i++) {
-   			html += "<div class = 'post'><p style = 'color:blue'>"+res.data[i].type+": "+res.data[i].from.name+"</p>"+res.data[i].message+"</div>"
+   			html += "<div class = 'post'><p style = 'color:blue'>"+res.data[i].updated_time+": "+res.data[i].type+": "+res.data[i].from.name+"</p>"+res.data[i].message+"</div>"
    		}
    		return html
    	}
