@@ -9,6 +9,7 @@
 	padding-right:15px;
 	color: #7f8c8d;;
 	overflow-y:auto;
+	overflow-x:hidden;
 	margin: 50px auto;
 	font-family: 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 	font-size:15px;
