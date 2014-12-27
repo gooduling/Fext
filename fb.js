@@ -4,16 +4,19 @@ window.fbAsyncInit = function() {
       xfbml      : true,
       version    : 'v2.2'
     });
-    
+    var accessToken;
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
     var uid = response.authResponse.userID;
-    var accessToken = response.authResponse.accessToken;
-    FB.api("/v2.2/me/home?limit=20", function (response) {
-     	//document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
+    accessToken = response.authResponse.accessToken;
+    FB.api("/v2.2/me/home?limit=70", function (response) {
+     	document.getElementById("message").innerHTML +=  repeater(response);
         //SUCCESS
-        console.log(response);
+        //console.log("response555");
     });
+    
+    var url = "https://graph.facebook.com/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
+ 	geturl(url)
   } else if (response.status === 'not_authorized') { // [2]
  	console.log(response.status);
  	alert(response.status)
@@ -33,14 +36,9 @@ window.fbAsyncInit = function() {
   }
     });
     
-    FB.login(function(){
- 		FB.api("/v2.2/me/home?limit=70", function (response) {
-     	document.getElementById("message").innerHTML +=  repeater(response);
-        //SUCCESS
-        //console.log("response555");
-    });
+    //FB.login(function(){
 	 //FB.api('/me/feed', 'post', {message: 'Test Message'});
-    }, {scope: 'public_profile,user_status, read_stream'});
+    //}, {scope: 'public_profile,user_status, read_stream'});
     
   };
 
@@ -61,3 +59,14 @@ window.fbAsyncInit = function() {
    		return html
    	}
    }
+   function geturl(url) {
+  	var xhr = new XMLHttpRequest(); 
+  	xhr.open('GET', url, true); // (2)
+  	xhr.onreadystatechange = function() {  // (3)
+    		if (xhr.readyState != 4) return; // (3.1)
+		console.log(xhr.responseText)
+    		return xhr.responseText; // (3.2)
+  	}
+  	xhr.send(null); // (4)
+  }
+
