@@ -6,15 +6,16 @@
 	height:480px;
 	border: 1px solid #7bb2d9;
 	padding: 10px;
+	padding-right:15px;
 	color: #7f8c8d;;
-	overflow:auto;
+	overflow-y:auto;
 	margin: 50px auto;
 	font-family: 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 	font-size:15px;
 	line-height: 24px;
 }
  .post p {
- 	color: #34495e;
+ 	color: #5299D3;
  	margin-bottom:5px;
  }
 
