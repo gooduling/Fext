@@ -2,21 +2,15 @@ window.fbAsyncInit = function() {
     FB.init({
       appId      : '1515108735428926',
       xfbml      : true,
-      version    : 'v2.0'
+      version    : 'v2.2'
     });
     var accessToken;
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
     var uid = response.authResponse.userID;
     accessToken = response.authResponse.accessToken;
-    FB.api("/v2.0/me/home?limit=70", function (response) {
-     	document.getElementById("message").innerHTML +=  repeater(response);
-        //SUCCESS
-        console.log(response);
-    });
-    
-    var url = "https://graph.facebook.com/v2.0/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
- 	geturl(url)
+    getNews()
+ //	geturl(url)
   } else if (response.status === 'not_authorized') { // [2]
  	console.log(response.status);
  	alert(response.status)
@@ -26,19 +20,10 @@ window.fbAsyncInit = function() {
  	console.log("not logged");
     // the user isn't logged in to Facebook.
  	FB.login(function(){
- 		FB.api("/v2.2/me/feed?limit=20", function (response) {
-     	//document.getElementById("message").innerHTML +=  "<br>"+response+"</br>";
-        //SUCCESS
-        console.log(response);
-    });
-	 //FB.api('/me/feed', 'post', {message: 'Test Message'});
+		getNews() 
     }, {scope: 'public_profile,user_status, read_stream'});
   }
     });
-    
-    //FB.login(function(){
-	 //FB.api('/me/feed', 'post', {message: 'Test Message'});
-    //}, {scope: 'public_profile,user_status, read_stream'});
     
   };
 
@@ -59,7 +44,15 @@ window.fbAsyncInit = function() {
    		return html
    	}
    }
-   function geturl(url) {
+   function getNews(){
+   	FB.api("/v2.2/me/home?limit=70", function (response) {
+     	document.getElementById("message").innerHTML +=  repeater(response);
+        //SUCCESS
+        console.log(response);
+    });	
+   }
+   //var url = "https://graph.facebook.com/v2.0/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
+   function geturl(url) {   //FQL doesn't works with this version 
   	var xhr = new XMLHttpRequest(); 
   	xhr.open('GET', url, true); // (2)
   	xhr.onreadystatechange = function() {  // (3)
