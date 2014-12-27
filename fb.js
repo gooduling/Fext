@@ -14,6 +14,7 @@ window.fbAsyncInit = function() {
   } else if (response.status === 'not_authorized') { // [2]
  	console.log(response.status);
  	alert(response.status)
+ 	login()
     // the user is logged in to Facebook, 
     // but has not authenticated your app
   } else { // [3]
@@ -65,6 +66,11 @@ window.fbAsyncInit = function() {
     		return xhr.responseText; // (3.2)
   	}
   	xhr.send(null); // (4)
+  }
+  function login (date) {
+  	FB.login(function(){
+		getNews() 
+    }, {scope: 'public_profile,user_status, read_stream'});
   }
 function goodDate (date) {
 	var ms = new Date(date);
