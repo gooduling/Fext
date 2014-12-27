@@ -18,7 +18,11 @@ body{
 	line-height: 24px;
 	background-color:#fff;
 }
- .post p {
+ .post p.header {
+ 	color: #78968D;
+ 	margin-bottom:5px;
+ }
+ .post p.caption {
  	color: #5299D3;
  	margin-bottom:5px;
  }
