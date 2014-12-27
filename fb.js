@@ -66,5 +66,5 @@ function goodDate (date) {
 	var ms = Date.parse(date);
 	var today = new Date();
 	if ((today-ms)<86400000) {return getHours(ms)+":"+getMinutes(ms)	
-	} else { return getDate(ms)+"/"+getMonth(ms)+" "+getHours(ms)+":"+getMinutes(ms)
+	} else { return getDate(ms)+"/"+getMonth(ms)+" "+getHours(ms)+":"+getMinutes(ms)}
 }
