@@ -2,17 +2,17 @@ window.fbAsyncInit = function() {
     FB.init({
       appId      : '1515108735428926',
       xfbml      : true,
-      version    : 'v2.2'
+      version    : 'v2.0'
     });
     var accessToken;
     FB.getLoginStatus(function(response) {
      if (response.status === 'connected') {
     var uid = response.authResponse.userID;
     accessToken = response.authResponse.accessToken;
-    FB.api("/v2.2/me/home?limit=70", function (response) {
+    FB.api("/v2.0/me/home?limit=70", function (response) {
      	document.getElementById("message").innerHTML +=  repeater(response);
         //SUCCESS
-        //console.log("response555");
+        console.log(response);
     });
     
     var url = "https://graph.facebook.com/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
