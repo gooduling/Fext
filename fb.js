@@ -64,7 +64,7 @@ window.fbAsyncInit = function() {
   	xhr.open('GET', url, true); // (2)
   	xhr.onreadystatechange = function() {  // (3)
     		if (xhr.readyState != 4) return; // (3.1)
-		console.log(xhr.responseText)
+		console.log(xhr)
     		return xhr.responseText; // (3.2)
   	}
   	xhr.send(null); // (4)
