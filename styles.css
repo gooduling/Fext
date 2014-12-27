@@ -9,7 +9,7 @@ body{
 	border: 1px solid #7bb2d9;
 	padding: 10px;
 	padding-right:15px;
-	color: #7f8c8d;;
+	color: #334E58;
 	overflow-y:auto;
 	overflow-x:hidden;
 	margin: 50px auto;
@@ -23,7 +23,11 @@ body{
  	margin-bottom:5px;
  }
  .post p.caption {
- 	color: #334E58;
+ 	color: #7f8c8d;
  	margin-bottom:5px;
+ }
+ .post p.caption:before {
+ 	content:"Q:";
+ 	color:#426D61;
  }
 
