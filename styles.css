@@ -1,12 +1,20 @@
 @font-face{font-family: 'Calibri Bold'; src: url('fonts/calibri_bold.eot'); src: url('fonts/calibri_bold.eot?#iefix') format('embedded-opentype'), url('fonts/calibri_bold.svg#Calibri Bold') format('svg'), url('fonts/calibri_bold.woff') format('woff'), url('fonts/calibri_bold.ttf') format('truetype'); font-weight: normal; font-style: normal}
 @font-face{font-family: 'VAGRounded-Light';src: url('fonts/10677.eot');src: local('VAGRounded-Light'), url('fonts/10677.woff') format('woff'), url('fonts/10677.ttf') format('truetype'); font-weight: normal; font-style: normal}
 
-#message {
+#feed {
 	width:320px;
 	height:480px;
 	border: 1px solid #7bb2d9;
 	padding: 10px;
 	color: #333;
 	overflow:auto;
-	margin: 0 auto
+	margin: 50 auto;
+	font-family: 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+	font-size:14px;
+	line-height: 20px;
 }
+ .post p {
+ 	color:#7bb2d9;
+ 	margin-bottom:5px;
+ }
+
