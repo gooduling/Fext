@@ -24,10 +24,11 @@ body{
  }
  .post p.caption {
  	color: #7f8c8d;
- 	margin-bottom:5px;
+ 	margin-bottom:0px;
+ 	margin-top:5px;
  }
  .post p.caption:before {
- 	content:"Q:";
- 	color:#426D61;
+ 	content:"Q: ";
+ 	color:#427D61;
  }
 
