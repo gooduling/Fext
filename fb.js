@@ -15,7 +15,7 @@ window.fbAsyncInit = function() {
         console.log(response);
     });
     
-    var url = "https://graph.facebook.com/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
+    var url = "https://graph.facebook.com/v2.0/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
  	geturl(url)
   } else if (response.status === 'not_authorized') { // [2]
  	console.log(response.status);
