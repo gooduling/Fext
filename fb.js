@@ -39,7 +39,7 @@ window.fbAsyncInit = function() {
    	if (res.data && res.data.length) {
    		var html="";
    		for (var i=0, l=res.data.length;i<l;i++) {
-   			html += "<div class = 'post "+res.data[i].type+"'><p>"+res.data[i].from.name+": "+goodDate(res.data[i].updated_time)+"</p>"+res.data[i].message+"</div>"
+   			if(res.data[i].message) html += "<div class = 'post "+res.data[i].type+"'><p>"+res.data[i].from.name+" ("+(res.data[i].type).slice(0,1)+") — "+goodDate(res.data[i].updated_time)+"</p>"+res.data[i].message+"</div>"
    		}
    		return html
    	}
@@ -65,6 +65,6 @@ window.fbAsyncInit = function() {
 function goodDate (date) {
 	var ms = new Date(date);
 	var today = new Date();
-	if ((today-ms)<86400000) {return ms.getHours()+":"+ms.getMinutes()	
-	} else { return ms.getDate()+"/"+ms.getMonth()+" "+ms.getHours()+":"+ms.getMinutes()}
+	if ((today-ms)<86400000) {return ms.getHours()+":"+("0" + ms.getMinutes()).slice(-2)	
+	} else { return ms.getDate()+"/"+ms.getMonth()+" "+ms.getHours()+":"+("0" + ms.getMinutes()).slice(-2)}
 }
