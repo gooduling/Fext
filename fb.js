@@ -1,4 +1,8 @@
 window.fbAsyncInit = function() {
+	var paging={
+		nextLink:"",
+		prevLink:""
+	};
     FB.init({
       appId      : '1515108735428926',
       xfbml      : true,
@@ -49,11 +53,22 @@ window.fbAsyncInit = function() {
    		return html
    	}
    }
+   function refresh(){
+   	if(paging.nextLink) {
+	   	var url = "me/home?limit=70&&"+paging.nextLink
+	   	FB.api(url, function (response) {
+	   		if (response.paging) paging.nextLink =response.paging.next.substring(response.paging.next.indexOf("until")); 
+	     		document.getElementById("feed").innerHTML = repeater(response)+document.getElementById("feed").innerHTML;
+	        	console.log(response);
+	    	});
+   	}
+   }
    function getNews(){
    	FB.api("me/home?limit=70", function (response) {
-     	document.getElementById("feed").innerHTML +=  repeater(response);
-        //SUCCESS
-        console.log(response);
+   		paging.nextLink =response.paging.next.substring(response.paging.next.indexOf("until")); 
+   		paging.prevLink=response.paging.previous.substring(response.paging.previous.indexOf("since"));
+     		document.getElementById("feed").innerHTML +=  repeater(response);
+        	console.log(response);
     });	
    }
    //var url = "https://graph.facebook.com/v2.0/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
