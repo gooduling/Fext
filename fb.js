@@ -2,6 +2,7 @@
 		nextLink:"",
 		prevLink:""
 	};
+	var presentFeed = {} // storage for existed  post's links
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '1515108735428926',
@@ -45,12 +46,15 @@ window.fbAsyncInit = function() {
    		var html="", article;
    		for (var i=0, l=res.data.length;i<l;i++) {
    			var it = res.data[i], capt='';
-   			if(it.status_type && it.status_type == "shared_story" && it.caption && it.caption.length>140) capt = "<p class = 'caption'><b>"+it.properties[0].text+":</b> "+it.caption+"</p>"
-   			if((it.message&&it.message.length>140)||(it.type=="status" && it.message)||capt) {
+   			if(it.status_type && it.status_type == "shared_story" && it.caption && it.caption.length>140 &&!presentFeed[it.link]) {
+   				capt = "<p class = 'caption'><b>"+it.properties[0].text+":</b> "+it.caption+"</p>"
+   			}
+   			if(!presentFeed[it.link]&&((it.message&&it.message.length>140)||(it.type=="status" && it.message)||capt)) {
    				article= "<div class = 'post "+res.data[i].type+"'><p class = 'header'>"
    					+res.data[i].from.name+" ("+(res.data[i].type).slice(0,2)+") — "+goodDate(res.data[i].updated_time)
    					+"</p>"+(it.message?it.message:'')+capt+"</div>";
-   				html +=article
+   				html +=article;
+   				presentFeed[it.link] = true
    			}
    		}
    		return html
