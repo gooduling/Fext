@@ -29,8 +29,8 @@ body{
  	border-left: 1px solid #7bb2d9;
  	padding-left:5px;
  }
- .post p.caption:before {
+ /*.post p.caption:before {
  	content:"Q: ";
  	color:#427D61;
- }
+ } */
 
