@@ -46,7 +46,7 @@ window.fbAsyncInit = function() {
    		var html="", article;
    		for (var i=0, l=res.data.length;i<l;i++) {
    			var it = res.data[i], capt='';
-   			if(it.status_type && it.status_type == "shared_story" && it.caption && it.caption.length>140 &&!presentFeed[it.link]) {
+   			if(it.status_type && it.status_type == "shared_story" && it.caption && it.caption.length>140) {
    				capt = "<p class = 'caption'><b>"+it.properties[0].text+":</b> "+it.caption+"</p>"
    			}
    			if(!presentFeed[it.link]&&((it.message&&it.message.length>140)||(it.type=="status" && it.message)||capt)) {
