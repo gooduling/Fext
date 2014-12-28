@@ -53,12 +53,22 @@ window.fbAsyncInit = function() {
    		return html
    	}
    }
-   function refresh(){
+   function freshnews(){
+   	if(paging.prevLink) {
+	   	var url = "me/home?limit=70&&"+paging.prevLink
+	   	FB.api(url, function (response) {
+	   		if (response.paging) paging.prevLink=response.paging.previous.substring(response.paging.previous.indexOf("since")); 
+	     		document.getElementById("feed").innerHTML = repeater(response)+document.getElementById("feed").innerHTML;
+	        	console.log(response);
+	    	});
+   	}
+   }
+   function oldnews(){
    	if(paging.nextLink) {
 	   	var url = "me/home?limit=70&&"+paging.nextLink
 	   	FB.api(url, function (response) {
 	   		if (response.paging) paging.nextLink =response.paging.next.substring(response.paging.next.indexOf("until")); 
-	     		document.getElementById("feed").innerHTML = repeater(response)+document.getElementById("feed").innerHTML;
+	     		document.getElementById("feed").innerHTML += repeater(response)
 	        	console.log(response);
 	    	});
    	}
