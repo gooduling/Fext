@@ -77,7 +77,7 @@ window.fbAsyncInit = function() {
    	FB.api("me/home?limit=70", function (response) {
    		paging.nextLink =response.paging.next.substring(response.paging.next.indexOf("until")); 
    		paging.prevLink=response.paging.previous.substring(response.paging.previous.indexOf("since"));
-     		document.getElementById("feed").innerHTML +=  repeater(response);
+     		document.getElementById("feed").innerHTML =  repeater(response);
         	console.log(response);
     });	
    }
