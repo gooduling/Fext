@@ -69,6 +69,7 @@ window.fbAsyncInit = function() {
 	     			document.getElementById("feed").innerHTML = repeater(response)+document.getElementById("feed").innerHTML;
 	   		}
 	        	console.log(response);
+	        	console.log(paging);
 	    	});
    	}
    }
@@ -81,6 +82,7 @@ window.fbAsyncInit = function() {
 	     			document.getElementById("feed").innerHTML += repeater(response)
 	   		}
 	        	console.log(response);
+	        	console.log(paging);
 	    	});
    	}
    }
@@ -90,6 +92,7 @@ window.fbAsyncInit = function() {
    		paging.prevLink=response.paging.previous.substring(response.paging.previous.indexOf("since"));
      		document.getElementById("feed").innerHTML =  repeater(response);
         	console.log(response);
+        	console.log(paging);
     });	
    }
    //var url = "https://graph.facebook.com/v2.0/fql?q=SELECT+uid2+FROM+friend+WHERE+uid1=me()&access_token="+accessToken
