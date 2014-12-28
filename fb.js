@@ -1,8 +1,8 @@
-window.fbAsyncInit = function() {
 	var paging={
 		nextLink:"",
 		prevLink:""
 	};
+window.fbAsyncInit = function() {
     FB.init({
       appId      : '1515108735428926',
       xfbml      : true,
