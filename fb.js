@@ -9,26 +9,8 @@ window.fbAsyncInit = function() {
       xfbml      : true,
       version: 'v2.2'
     });
-    var accessToken;
     FB.getLoginStatus(function(response) {
-     if (response.status === 'connected') {
-    var uid = response.authResponse.userID;
-    accessToken = response.authResponse.accessToken;
-    getNews()
- //	geturl(url)
-  } else if (response.status === 'not_authorized') { // [2]
- 	console.log(response.status);
- 	alert(response.status)
- 	login()
-    // the user is logged in to Facebook, 
-    // but has not authenticated your app
-  } else { // [3]
- 	console.log("not logged");
-    // the user isn't logged in to Facebook.
- 	FB.login(function(){
-		getNews() 
-    }, {scope: 'public_profile,user_status, read_stream'});
-  }
+      statusChangeCallback(response);
     });
     
   };
@@ -117,3 +99,33 @@ function goodDate (date) {
 	if ((today-ms)<86400000) {return ms.getHours()+":"+("0" + ms.getMinutes()).slice(-2)	
 	} else { return ms.getDate()+"/"+ms.getMonth()+" "+ms.getHours()+":"+("0" + ms.getMinutes()).slice(-2)}
 }
+function statusChangeCallback(response) {
+     if (response.status === 'connected') {
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+    getNews()
+ //	geturl(url)
+  } else if (response.status === 'not_authorized') { // [2]
+  	document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+ 	//login()
+    // the user is logged in to Facebook, 
+    // but has not authenticated your app
+  } else { // [3]
+  document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    // the user isn't logged in to Facebook.
+ 	FB.login(function(){
+		getNews() 
+    }, {scope: 'public_profile,user_status, read_stream'});
+  }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
