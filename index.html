@@ -1,24 +1,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<title>Fext News</title>
-</head>
-<body>
-	<script src="fb.js" type="text/javascript"></script>
-	<button onclick = "freshnews()">Next</button>
-	<button onclick = "oldnews()">Previous</button>
-	<fb:login-button scope='public_profile,user_status, read_stream' onlogin="checkLoginState()">
-	</fb:login-button>
-
-<div id="status">
-</div>
-	
-	<div id="feed">
-	<h1>LOOKING FOR \n GOOD NEWS</h1>
-	</br>
-	<h5>Fext - essential text from your Facebook feed only</h5>	
-	</div>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<title>Fext News</title>
+	</head>
+	<body>
+		<script src="fb.js" type="text/javascript"></script>
+		<fb:login-button scope='public_profile,user_status, read_stream' onlogin="checkLoginState()">
+		</fb:login-button>
+		<button onclick = "freshnews()">Next</button>
+		<button onclick = "oldnews()">Previous</button>
+		<div id="status"></div>
+		
+		<div id="feed">
+			</br>
+			<h1>LOOKING FOR</h1>
+			<h1>GOOD NEWS</h1>
+			</br>
+			<h3>Fext</h3>
+			<h4>essential text from your Facebook feed only</h4>	
+		</div>
+	</body>
 </html>
