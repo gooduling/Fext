@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<script src="fb.js" type="text/javascript"></script>
-		<fb:login-button scope='public_profile,user_status, read_stream' onlogin="checkLoginState()">
+		<fb:login-button scope='public_profile, user_status, read_stream, email, user_friends' onlogin="checkLoginState()">
 		</fb:login-button>
 		<button onclick = "freshnews()">Next</button>
 		<button onclick = "oldnews()">Previous</button>
