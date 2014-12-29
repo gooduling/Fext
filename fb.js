@@ -115,9 +115,9 @@ function statusChangeCallback(response) {
   document.getElementById('status').innerHTML = 'Please log ' +
         'into Facebook.';
     // the user isn't logged in to Facebook.
- 	FB.login(function(){
-		getNews() 
-    }, {scope: 'public_profile,user_status, read_stream'});
+ //	FB.login(function(){
+//		getNews() 
+ //   }, {scope: 'public_profile,user_status, read_stream'});
   }
   }
 
