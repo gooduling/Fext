@@ -2,20 +2,16 @@
 @font-face{font-family: 'VAGRounded-Light';src: url('fonts/10677.eot');src: local('VAGRounded-Light'), url('fonts/10677.woff') format('woff'), url('fonts/10677.ttf') format('truetype'); font-weight: normal; font-style: normal}
 body{
 	background-color:#444;
-}
-#feed {
-	width:320px;
-	height:480px;
-	border: 1px solid #7bb2d9;
-	padding: 10px;
-	padding-right:15px;
-	color: #334E58;
-	overflow-y:auto;
-	overflow-x:hidden;
-	margin: 50px auto;
 	font-family: 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 	font-size:15px;
 	line-height: 24px;
+}
+#feed {
+	max-width:800px;
+	padding: 10px;
+	color: #334E58;
+	overflow-y:auto;
+	overflow-x:hidden;
 	background-color:#fff;
 }
  .post p.header {
