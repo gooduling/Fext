@@ -44,8 +44,10 @@ window.fbAsyncInit = function() {
    }
    function freshnews(){
    	if(paging.prevLink) {
+   		document.getElementById("spinner").style.display="block";
 	   	var url = "me/home?limit=70&&"+paging.prevLink
 	   	FB.api(url, function (response) {
+	   		document.getElementById("spinner").style.display="none"
 	   		if (response.paging) {
 	   			paging.prevLink=response.paging.previous.substring(response.paging.previous.indexOf("since")); 
 	     			document.getElementById("feed").innerHTML = repeater(response)+document.getElementById("feed").innerHTML;
@@ -57,8 +59,10 @@ window.fbAsyncInit = function() {
    }
    function oldnews(){
    	if(paging.nextLink) {
+   		document.getElementById("spinner").style.display="block";
 	   	var url = "me/home?limit=70&&"+paging.nextLink
 	   	FB.api(url, function (response) {
+	   		document.getElementById("spinner").style.display="none";
 	   		if (response.paging) {
 	   			paging.nextLink =response.paging.next.substring(response.paging.next.indexOf("until")); 
 	     			document.getElementById("feed").innerHTML += repeater(response)
