@@ -3,7 +3,7 @@
 body{
 	font-family: 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 	font-size:35px;
-	line-height: 24px;
+	line-height: 1.5em;
 }
 #feed {
 	max-width:800px;
