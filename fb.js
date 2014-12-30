@@ -106,14 +106,16 @@ function statusChangeCallback(response) {
     getNews()
  //	geturl(url)
   } else if (response.status === 'not_authorized') { // [2]
-  	document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+  	document.getElementById('status').innerHTML = 'Please log into Facebook. '
+  	+ '<fb:login-button scope="public_profile, user_status, read_stream, email,'
+        +'user_friends" onlogin="checkLoginState()"></fb:login-button>';
  	//login()
     // the user is logged in to Facebook, 
     // but has not authenticated your app
   } else { // [3]
-  document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+  document.getElementById('status').innerHTML = 'Please log into Facebook. '
+  	+ '<fb:login-button scope="public_profile, user_status, read_stream, email,'
+        +'user_friends" onlogin="checkLoginState()"></fb:login-button>';
     // the user isn't logged in to Facebook.
  //	FB.login(function(){
 //		getNews() 
