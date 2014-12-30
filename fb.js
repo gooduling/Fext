@@ -69,7 +69,9 @@ window.fbAsyncInit = function() {
    	}
    }
    function getNews(){
+   	document.getElementById("spinner").style.display="block";
    	FB.api("me/home?limit=70", function (response) {
+   		document.getElementById("spinner").style.display="none";
    		paging.nextLink =response.paging.next.substring(response.paging.next.indexOf("until")); 
    		paging.prevLink=response.paging.previous.substring(response.paging.previous.indexOf("since"));
      		document.getElementById("feed").innerHTML =  repeater(response);
