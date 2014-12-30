@@ -7,12 +7,8 @@
 	</head>
 	<body>
 		<script src="fb.js" type="text/javascript"></script>
-		<fb:login-button scope='public_profile, user_status, read_stream, email, user_friends' onlogin="checkLoginState()">
-		</fb:login-button>
-		<button onclick = "freshnews()">Next</button>
-		<button onclick = "oldnews()">Previous</button>
 		<div id="status"></div>
-		
+		<button onclick = "freshnews()">Next</button>
 		<div id="feed">
 			</br>
 			<h1>LOOKING FOR</h1>
@@ -21,5 +17,6 @@
 			<h3>Fext</h3>
 			<h4>essential text from your Facebook feed only</h4>	
 		</div>
+		<button onclick = "oldnews()">Previous</button>
 	</body>
 </html>
