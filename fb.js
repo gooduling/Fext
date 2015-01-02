@@ -27,14 +27,17 @@ window.fbAsyncInit = function() {
    	if (res.data && res.data.length) {
    		var html="", article;
    		for (var i=0, l=res.data.length;i<l;i++) {
-   			var it = res.data[i], capt='';
+   			var it = res.data[i], capt='', linkTitle='';
+   			if(it.type == "video" && it.name) {
+   				linkTitle = "<p class = 'linkTitle'>"+it.name+": video</p>"
+   			}
    			if(it.status_type && it.status_type == "shared_story" && it.caption && it.caption.length>140) {
    				capt = "<p class = 'caption'><b>"+it.properties[0].text+":</b> "+it.caption+"</p>"
    			}
    			if(!presentFeed[it.link]&&((it.message&&it.message.length>140)||(it.type=="status" && it.message)||capt)) {
    				article= "<div class = 'post "+res.data[i].type+"'><p class = 'header'>"
    					+res.data[i].from.name+" ("+(res.data[i].type).slice(0,2)+") — "+goodDate(res.data[i].updated_time)
-   					+"</p>"+(it.message?it.message:'')+capt+"</div>";
+   					+"</p>"+linkTitle+(it.message?it.message:'')+capt+"</div>";
    				html +=article;
    				presentFeed[it.link] = true
    			}
@@ -103,7 +106,8 @@ function goodDate (date) {
 	var ms = new Date(date);
 	var today = new Date();
 	if ((today-ms)<86400000) {return ms.getHours()+":"+("0" + ms.getMinutes()).slice(-2)	
-	} else { return ms.getDate()+"/"+ms.getMonth()+" "+ms.getHours()+":"+("0" + ms.getMinutes()).slice(-2)}
+	} else if(today) { return ms.getDate()+"/"+ms.getMonth()+" "+ms.getHours()+":"+("0" + ms.getMinutes()).slice(-2)
+	} else {return "no date"}
 }
 function statusChangeCallback(response) {
      if (response.status === 'connected') {
