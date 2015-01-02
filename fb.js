@@ -33,7 +33,7 @@ window.fbAsyncInit = function() {
 	   			}
    			if(!presentFeed[it.link]&&((it.message&&it.message.length>140)||(it.type=="status" && it.message)||capt)) {
    				if((it.type == "video" || it.type == "link") && it.name) {
-	   				linkTitle = "<p class = 'linkTitle'>"+it.name+" "+(res.data[i].type).slice(0,1)+</p>"
+	   				linkTitle = "<p class = 'linkTitle'>"+it.name+" "+(res.data[i].type).slice(0,1)+"</p>"
 	   			}
 	   			if(it.type == "photo") type= "("+(res.data[i].type).slice(0,2)+")"
    				article= "<div class = 'post "+res.data[i].type+"'><p class = 'header'>"
