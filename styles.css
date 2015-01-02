@@ -3,9 +3,9 @@ body{
 	font-size:35px;
 	line-height: 1.5em;
 }
-a {
-	text-decoration:none;
-	color: inherit
+p a {
+	text-decoration: none;
+	color: #7f8c8d;
 }
 #feed {
 	max-width:800px;
