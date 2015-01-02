@@ -27,16 +27,17 @@ window.fbAsyncInit = function() {
    	if (res.data && res.data.length) {
    		var html="", article;
    		for (var i=0, l=res.data.length;i<l;i++) {
-   			var it = res.data[i], capt='', linkTitle='';
+   			var it = res.data[i], capt='', linkTitle='',type=' ';
    			if(it.status_type && it.status_type == "shared_story" && it.caption && it.caption.length>140) {
 	   				capt = "<p class = 'caption'><b>"+it.properties[0].text+":</b> "+it.caption+"</p>"
 	   			}
    			if(!presentFeed[it.link]&&((it.message&&it.message.length>140)||(it.type=="status" && it.message)||capt)) {
    				if((it.type == "video" || it.type == "link") && it.name) {
-	   				linkTitle = "<p class = 'linkTitle'>("+(res.data[i].type).slice(0,1)+"| "+it.name+": "+it.description+"</p>"
+	   				linkTitle = "<p class = 'linkTitle'>"it.name+" "+(res.data[i].type).slice(0,1)+</p>"
 	   			}
+	   			if(it.type == "photo") type= "("+(res.data[i].type).slice(0,2)+")"
    				article= "<div class = 'post "+res.data[i].type+"'><p class = 'header'>"
-   					+res.data[i].from.name+goodDate(res.data[i].updated_time)
+   					+res.data[i].from.name+type+goodDate(res.data[i].updated_time)
    					+"</p>"+linkTitle+(it.message?it.message:'')+capt+"</div>";
    				html +=article;
    				presentFeed[it.link] = true
